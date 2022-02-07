@@ -64,6 +64,9 @@ body {
   background-color: black;
   overflow-x: hidden; // scrollbar 지우기
 }
+input {
+  color: ${(props) => props.theme.white.darker};
+}
 a {
   text-decoration:none;
   color:inherit;
