@@ -23,7 +23,7 @@ const Loader = styled.div`
 `;
 
 const Banner = styled.div<{ bgPhoto: string }>`
-  height: 150vh;
+  height: 120vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,7 +45,13 @@ const Overview = styled.p`
 
 const Slider = styled.div`
   position: relative;
-  top: -100px;
+  display: flex;
+  padding: 0px 30px;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 21vh;
+  background-color: ${(props) => props.theme.black.darker};
+  z-index: 0;
 `;
 
 const Row = styled(motion.div)`
@@ -54,6 +60,19 @@ const Row = styled(motion.div)`
   grid-template-columns: repeat(6, 1fr);
   position: absolute;
   width: 100%;
+`;
+
+const RowHeader = styled(motion.div)`
+  font-size: 24px;
+  font-weight: 500;
+  text-align: bottom;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+  width: 100%;
+  height: 50px;
+  margin: 0;
 `;
 
 const rowVariants = {
@@ -129,6 +148,7 @@ const Overlay = styled(motion.div)`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
+  overflow: hidden;
 `;
 
 const BigMovie = styled(motion.div)<{ scrolly: MotionValue<number> }>`
@@ -208,6 +228,7 @@ function Home() {
             <Title>{data?.results[0].title}</Title>
             <Overview>{data?.results[0].overview}</Overview>
           </Banner>
+          <RowHeader>Now Playing</RowHeader>
           <Slider>
             <AnimatePresence initial={false} onExitComplete={toggleLeaving}>
               <Row
