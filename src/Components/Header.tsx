@@ -115,6 +115,7 @@ function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const homeMatch = useMatch("/");
   const tvMatch = useMatch("/tv");
+  const myListMatch = useMatch("/myList");
   const navAnimation = useAnimation(); // 코드에 Animation을 사용하고 싶은 경우
   const { scrollY } = useViewportScroll();
   const toggleSearch = () => setSearchOpen((prev) => !prev);
@@ -154,6 +155,11 @@ function Header() {
           <Item>
             <Link to="/tv">
               Tv Shows {tvMatch && <Circle layoutId="circle" />}
+            </Link>
+          </Item>
+          <Item>
+            <Link to="/myList">
+              My List {myListMatch && <Circle layoutId="circle" />}
             </Link>
           </Item>
         </Items>
